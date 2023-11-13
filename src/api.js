@@ -9,6 +9,9 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 app.use(express.json());
+
+app.use(cors({ origin: 'https://stripefrnt.netlify.app' }));
+
 const router = express.Router();
 
 router.get("/", (req, res) => {
