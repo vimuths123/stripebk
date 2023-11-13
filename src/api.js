@@ -12,15 +12,6 @@ app.use(express.json());
 
 app.use(cors())
 
-// app.use(
-//   cors({
-//     origin: "https://stripefrnt.netlify.app",
-//     methods: "POST",
-//     allowedHeaders: ["Content-Type"],
-//     credentials: true,
-//   })
-// );
-
 const router = express.Router();
 
 router.get("/", (req, res) => {
