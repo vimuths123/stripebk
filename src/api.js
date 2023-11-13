@@ -25,6 +25,7 @@ const calculateOrderAmount = (items) => {
 const amount = 1000
 
 router.post("/create-payment-intent", async (req, res) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' https://js.stripe.com;");
   const { qty } = req.body;
 
   const paymentIntent = await stripe.paymentIntents.create({
