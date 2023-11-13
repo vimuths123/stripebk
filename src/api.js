@@ -1,11 +1,12 @@
 const express = require("express");
+const cors = require('cors');
 const serverless = require("serverless-http");
 
 require('dotenv').config();
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-const cors = require('cors');
+
 const app = express();
 app.use(express.json());
 const router = express.Router();
