@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require('cors')({ origin: true });
+const cors = require('cors');
 const serverless = require("serverless-http");
 
 require('dotenv').config();
@@ -10,7 +10,14 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
 app.use(express.json());
 
-app.use(cors({ origin: 'https://stripefrnt.netlify.app' }));
+app.use(
+  cors({
+    origin: "https://stripefrnt.netlify.app",
+    methods: "POST",
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
+  })
+);
 
 const router = express.Router();
 
